@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject playerOnePrefab;
     public GameObject playerTwoPrefab;
-    private GameObject playerOne;
-    private GameObject playerTwo;
+    public GameObject playerOne;
+    public GameObject playerTwo;
 
     public bool isPlayerOne = true;
 
@@ -57,7 +57,6 @@ public class GameManager : MonoBehaviour
         playerOneApproval = 0;
         playerTwoApproval = 0;
         GameManager.S.currentState = GameState.PreRound;
-        DontDestroyOnLoad(this);
         StartRound(playerOne);
     }
 
