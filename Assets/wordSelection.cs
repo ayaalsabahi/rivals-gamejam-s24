@@ -10,17 +10,18 @@ public class wordSelection : MonoBehaviour
 
 
     //create a script that takes things from a .txt file and puts it into an array 
+    public Tuple<string, string>[] wordArray { get; private set; }
 
     private void Start()
     {
         // Make the GameObject this script is attached to persistent across scenes
         DontDestroyOnLoad(gameObject);
-        getWords();
+        wordArray = getWords();
         
     }
 
 
-    private void getWords()
+    private Tuple<string, string>[] getWords()
     {
         string fileName = "wordbank.txt";
 
@@ -51,9 +52,10 @@ public class wordSelection : MonoBehaviour
 
         // Convert the list to an array
         Tuple<string, string>[] tupleArray = tupleList.ToArray();
+        return tupleArray;
+        
 
     }
-
 
 
 
