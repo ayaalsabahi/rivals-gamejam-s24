@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 214349823}
   - component: {fileID: 214349822}
   - component: {fileID: 214349821}
-  - component: {fileID: 214349825}
   - component: {fileID: 214349826}
+  - component: {fileID: 214349825}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -237,17 +237,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 214349820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b6e5226f107f43ca9dbaba11f88f180, type: 3}
+  m_Script: {fileID: 11500000, guid: 37b10f848b60949be9e1866a8c1e8638, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choice1: {fileID: 288569008}
-  choice1Txt: x
-  choice2: {fileID: 1765161188}
-  choice2Txt: y
-  choice3: {fileID: 1202772540}
-  choice3Txt: z
-  blankSpot: {fileID: 505446095}
-  wordGenerator: {fileID: 214349826}
 --- !u!114 &214349826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,9 +249,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 214349820}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37b10f848b60949be9e1866a8c1e8638, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b6e5226f107f43ca9dbaba11f88f180, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  choice1: {fileID: 288569008}
+  choice1Txt: 
+  choice2: {fileID: 1765161188}
+  choice2Txt: 
+  choice3: {fileID: 1202772540}
+  choice3Txt: 
+  blankSpot: {fileID: 505446095}
+  wordGenerator: {fileID: 214349825}
+  word: 
 --- !u!1 &288569006
 GameObject:
   m_ObjectHideFlags: 0

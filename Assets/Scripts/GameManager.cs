@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject playerOnePrefab;
     public GameObject playerTwoPrefab;
-    private GameObject playerOne;
-    private GameObject playerTwo;
+    public GameObject playerOne;
+    public GameObject playerTwo;
 
     public bool isPlayerOne = true;
 
