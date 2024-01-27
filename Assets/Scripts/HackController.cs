@@ -24,7 +24,12 @@ public class HackController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>());
+        Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>().getRandomWords());
+        // Debug.Log(wordGenerator.getRandomWords());
         List<Tuple<string, string>> words = new List<Tuple<string, string>>(GameObject.Find("Canvas").GetComponent<wordSelection>().getRandomWords());
+        Debug.Log(words.GetType());
+
         choice1Txt = words[0].Item1;
         choice2Txt = words[1].Item1;
         choice3Txt = words[2].Item1;
@@ -33,7 +38,7 @@ public class HackController : MonoBehaviour
         choice1.onClick.AddListener(ChangeBlankTo1);
         choice2.onClick.AddListener(ChangeBlankTo2);
         choice3.onClick.AddListener(ChangeBlankTo3);
-        Debug.Log(GameObject.Find("HackButton").GetComponent<Button>());
+        // Debug.Log(GameObject.Find("HackButton").GetComponent<Button>());
         GameObject.Find("HackButton").GetComponent<Button>().onClick.AddListener(Hack);
     }
 

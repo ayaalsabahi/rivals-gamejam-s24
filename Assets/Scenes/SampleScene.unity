@@ -247,7 +247,7 @@ MonoBehaviour:
   choice3: {fileID: 1202772540}
   choice3Txt: z
   blankSpot: {fileID: 505446095}
-  wordGenerator: {fileID: 0}
+  wordGenerator: {fileID: 214349826}
 --- !u!114 &214349826
 MonoBehaviour:
   m_ObjectHideFlags: 0
