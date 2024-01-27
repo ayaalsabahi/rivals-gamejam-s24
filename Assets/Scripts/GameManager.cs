@@ -9,6 +9,8 @@ public enum GameState { Menu, PreRound, PlayerOneSabotage, PlayerTwoGuess,
 
 public enum winnerState { playerOneWin, playerTwoWin, playerOneLose, playerTwoLose, stillPlaying}
 public class GameManager : MonoBehaviour
+
+
 {
     public static GameManager S; // define the singleton
 
@@ -18,11 +20,13 @@ public class GameManager : MonoBehaviour
     public float playerTwoApproval;
     private float timer;
     private float RATING_INCREMENT = 10.0f;
-    private float MAX_POINTS = 10.00f;
-    public int STRIKE_COUNT = 1;
+    private float MAX_POINTS = 50.00f;
+    public int STRIKE_COUNT = 2;
 
     public GameObject playerOne;
     public GameObject playerTwo;
+
+    public bool isPlayerOne = true;
 
     //winner starts at being still playing
     public winnerState winnerIs = winnerState.stillPlaying;
@@ -67,7 +71,6 @@ public class GameManager : MonoBehaviour
 
     public void CorrectAnswer(GameObject thePlayer)
     {
-        Debug.Log("Line 4");
         // thePlayer rating increases by 10 points
         IncreasePlayerRating(thePlayer, RATING_INCREMENT);
         // "Well said!" "Astute observation as always."
@@ -94,19 +97,29 @@ public class GameManager : MonoBehaviour
 
     private void IncreasePlayerRating(GameObject thePlayer, float ratingIncrease)
     {
-        
-        playerOneApproval += ratingIncrease;
-        if (playerOneApproval >= MAX_POINTS) winnerIs = winnerState.playerOneWin;
+
+        if (isPlayerOne)
+        {
+            if (playerOneApproval >= MAX_POINTS) winnerIs = winnerState.playerOneWin;
+            playerOneApproval += ratingIncrease;
+        }
 
         else
+        {
+            if (playerTwoApproval >= MAX_POINTS) winnerIs = winnerState.playerTwoWin;
             playerTwoApproval += ratingIncrease;
-        if (playerTwoApproval >= MAX_POINTS) winnerIs = winnerState.playerTwoWin;
+        }
+        
+
+
+       
         
 
     }
 
     private void SwitchTurn()
     {
+        isPlayerOne = false;
         GameManager.S.currentState = (GameManager.S.currentState == GameState.PlayerTwoSabotage)
             ? GameState.PlayerOneSabotage : GameState.PlayerTwoSabotage;
     }
