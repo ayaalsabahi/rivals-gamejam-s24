@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
@@ -71,7 +72,6 @@ public class HackController : MonoBehaviour
     {
         blankSpot.text = choice3.GetComponentInChildren<TMP_Text>().text;
     }
-
 
     public void Hack()
     {

@@ -21,8 +21,10 @@ public class GameManager : MonoBehaviour
     private float MAX_POINTS = 10.00f;
     public int STRIKE_COUNT = 1;
 
-    public GameObject playerOne;
-    public GameObject playerTwo;
+    public GameObject playerOnePrefab;
+    public GameObject playerTwoPrefab;
+    private GameObject playerOne;
+    private GameObject playerTwo;
 
     //winner starts at being still playing
     public winnerState winnerIs = winnerState.stillPlaying;
@@ -46,6 +48,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // initialize relevant variables
+        playerOne = Instantiate(playerOnePrefab);
+        playerTwo = Instantiate(playerTwoPrefab);
         playerOneApproval = 0;
         playerTwoApproval = 0;
         GameManager.S.currentState = GameState.PreRound;
@@ -56,13 +60,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // check for winner
     }
 
     private void StartRound(GameObject thePlayer)
     {
         GameManager.S.currentState = (thePlayer == playerOne)
             ? GameState.PlayerOneSabotage : GameState.PlayerTwoSabotage;
+    }
+
+    public void GoToSabotagee()
+    {
+
     }
 
     public void CorrectAnswer(GameObject thePlayer)
