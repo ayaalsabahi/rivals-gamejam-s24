@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 214349823}
   - component: {fileID: 214349822}
   - component: {fileID: 214349821}
-  - component: {fileID: 214349825}
+  - component: {fileID: 214349826}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -227,7 +227,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &214349825
+--- !u!114 &214349826
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,13 +240,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   choice1: {fileID: 288569008}
-  choice1Txt: x
+  choice1Txt: 
   choice2: {fileID: 1765161188}
-  choice2Txt: y
+  choice2Txt: 
   choice3: {fileID: 1202772540}
-  choice3Txt: z
+  choice3Txt: 
   blankSpot: {fileID: 505446095}
-  wordGenerator: {fileID: 0}
+  wordGenerator: {fileID: 2361135822986935707, guid: cca7495827c7545768340a068041c9f1, type: 3}
   word: 
 --- !u!1 &288569006
 GameObject:
@@ -821,6 +821,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784252445}
   m_CullTransparentMesh: 1
+--- !u!1001 &986706211
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2190888821880233248, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.6704326
+      objectReference: {fileID: 0}
+    - target: {fileID: 2190888821880233248, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.19672322
+      objectReference: {fileID: 0}
+    - target: {fileID: 2190888821880233248, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.037669726
+      objectReference: {fileID: 0}
+    - target: {fileID: 2190888821880233248, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2190888821880233248, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2190888821880233248, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2190888821880233248, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2190888821880233248, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2190888821880233248, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2190888821880233248, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7451965305129417621, guid: cca7495827c7545768340a068041c9f1, type: 3}
+      propertyPath: m_Name
+      value: wordManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cca7495827c7545768340a068041c9f1, type: 3}
 --- !u!1 &1061325531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,3 +2049,4 @@ SceneRoots:
   - {fileID: 1533925322}
   - {fileID: 214349824}
   - {fileID: 1061325534}
+  - {fileID: 986706211}

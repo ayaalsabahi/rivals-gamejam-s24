@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     private float MAX_POINTS = 50.00f;
     public int STRIKE_COUNT = 2;
 
+    public GameObject playerOnePrefab;
+    public GameObject playerTwoPrefab;
     public GameObject playerOne;
     public GameObject playerTwo;
 
