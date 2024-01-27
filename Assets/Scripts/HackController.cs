@@ -18,21 +18,38 @@ public class HackController : MonoBehaviour
     public TMP_Text blankSpot;
 
     public wordSelection wordGenerator;
+
+    public string word;
     
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>());
-        Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>().getRandomWords());
+        // Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>());
+        // Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>().getRandomWords());
         // Debug.Log(wordGenerator.getRandomWords());
-        List<Tuple<string, string>> words = new List<Tuple<string, string>>(GameObject.Find("Canvas").GetComponent<wordSelection>().getRandomWords());
-        Debug.Log(words.GetType());
+
+
+        Debug.Log(wordGenerator.GetType());
+        Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>().GetType());
+        wordGenerator = GameObject.Find("Canvas").GetComponent<wordSelection>();
+        Debug.Log(wordGenerator.GetType());
+        List<Tuple<string, string>> words = new List<Tuple<string, string>>(wordGenerator.getRandomWords());
 
         choice1Txt = words[0].Item1;
         choice2Txt = words[1].Item1;
         choice3Txt = words[2].Item1;
+        
+
+
+
+        // List<Tuple<string, string>> words = new List<Tuple<string, string>>(GameObject.Find("Canvas").GetComponent<wordSelection>().getRandomWords());
+        // Debug.Log(words.GetType());
+
+        // choice1Txt = words[0].Item1;
+        // choice2Txt = words[1].Item1;
+        // choice3Txt = words[2].Item1;
         
 
         choice1.onClick.AddListener(ChangeBlankTo1);
@@ -73,7 +90,8 @@ public class HackController : MonoBehaviour
 
     public void Hack()
     {
-        Debug.Log(blankSpot.text);
+        word = blankSpot.text;
+        Debug.Log(word);
     }
 
 }
