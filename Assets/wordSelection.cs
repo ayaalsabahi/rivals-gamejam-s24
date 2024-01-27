@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+
 public class wordSelection : MonoBehaviour
 {
     public (string, string) currWord = ("scrambled", "word");
@@ -17,6 +18,7 @@ public class wordSelection : MonoBehaviour
         // Make the GameObject this script is attached to persistent across scenes
         DontDestroyOnLoad(gameObject);
         wordArray = getWords();
+        getRandomWords();
         
     }
 
@@ -57,6 +59,41 @@ public class wordSelection : MonoBehaviour
 
     }
 
+
+    public Tuple<string, string>[] getRandomWords()
+    {
+        int firstChoice = 0;
+        int secondChoice = 0;
+        int thirdChoice = 0;
+        var rng = new System.Random();
+        int arrayLength = wordArray.Length;
+
+        while (firstChoice == secondChoice || firstChoice == thirdChoice)
+        {
+            firstChoice = rng.Next(0, arrayLength);
+            secondChoice = rng.Next(0, arrayLength);
+            thirdChoice = rng.Next(0, arrayLength);
+        }
+
+        Tuple<string, string>[] selectedWords = new Tuple<string, string>[3];
+
+        // Get the selected tuples and add them to the array
+        selectedWords[0] = wordArray[firstChoice];
+        selectedWords[1] = wordArray[secondChoice];
+        selectedWords[2] = wordArray[thirdChoice];
+
+
+        for (int i = 0; i < selectedWords.Length; i++)
+        {
+            Debug.Log($"Selected Word {i + 1}: {selectedWords[i].Item1}, {selectedWords[i].Item2}");
+        }
+
+        // Return the array with the selected tuples
+        return selectedWords;
+
+
+
+    }
 
 
 }
