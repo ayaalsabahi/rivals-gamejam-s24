@@ -25,7 +25,6 @@ public class wordSelection : MonoBehaviour
         string fileName = "wordbank.txt";
 
         // Read all lines from the file
-        
         string filePath = Path.Combine(Application.dataPath, fileName);
         string[] lines = File.ReadAllLines(filePath);
         // Create a list to store tuples
@@ -50,14 +49,9 @@ public class wordSelection : MonoBehaviour
             }
         }
 
-        // Convert the list to an array if needed
+        // Convert the list to an array
         Tuple<string, string>[] tupleArray = tupleList.ToArray();
 
-        foreach (var tuple in tupleArray)
-        {
-            Debug.Log($"Tuple: {tuple.Item1} |||| {tuple.Item2}");
-            
-        }
     }
 
 
