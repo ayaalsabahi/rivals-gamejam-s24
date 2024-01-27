@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 using System;
 
@@ -87,11 +88,15 @@ public class HackController : MonoBehaviour
         blankSpot.text = choice3.GetComponentInChildren<TMP_Text>().text;
     }
 
-
     public void Hack()
     {
+<<<<<<< Updated upstream
         word = blankSpot.text;
         Debug.Log(word);
+=======
+        Debug.Log(blankSpot.text);
+        //GameManager.S.GoToSabotagee();
+>>>>>>> Stashed changes
     }
 
 }
