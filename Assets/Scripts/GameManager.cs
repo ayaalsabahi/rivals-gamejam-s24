@@ -108,17 +108,15 @@ public class GameManager : MonoBehaviour
             if (playerTwoApproval >= MAX_POINTS) winnerIs = winnerState.playerTwoWin;
             playerTwoApproval += ratingIncrease;
         }
-        
-
-
-       
-        
 
     }
 
     public void SwitchTurn()
     {
-        
+        if (!isPlayerOne)
+        {
+            isPlayerOne = true;
+        }
     }
 
     private IEnumerator GameOverRoutine()

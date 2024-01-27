@@ -17,7 +17,7 @@ public class wordSelection : MonoBehaviour
     private void Awake()
     {
         // Make the GameObject this script is attached to persistent across scenes
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         wordArray = getWords();
     }
 
