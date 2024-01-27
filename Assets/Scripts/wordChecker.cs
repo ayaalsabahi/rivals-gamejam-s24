@@ -81,20 +81,9 @@ public class wordChecker : MonoBehaviour
     private void HandleWinning()
     {
         isFound = true;
-        Debug.Log("Line 2");
-
-        if(GameManager.S == null)
-        {
-            Debug.Log("oh no :(");
-        }
-
-        Debug.Log("Player two");
-        if (GameManager.S.playerOne) GameManager.S.CorrectAnswer(GameManager.S.playerOne);
-
+        if (GameManager.S.isPlayerOne) GameManager.S.CorrectAnswer(GameManager.S.playerOne);
         else GameManager.S.CorrectAnswer(GameManager.S.playerTwo);
-        Debug.Log("Line 1");
         if (GameManager.S.winnerIs == winnerState.playerOneWin || GameManager.S.winnerIs == winnerState.playerTwoWin) { 
-            Debug.Log("SWITCHHH");
             SceneManager.LoadScene("winning");
         }
         else
@@ -104,14 +93,13 @@ public class wordChecker : MonoBehaviour
             colors.normalColor = Color.green;
             goToSabotagerButton.colors = colors;
         }
-
     }
 
     private void HandleLosing()
     {
             if (GameManager.S.strikeCountPlayerOne >= GameManager.S.STRIKE_COUNT || GameManager.S.strikeCountPlayerTwo >= GameManager.S.STRIKE_COUNT) SceneManager.LoadScene("losing");
 
-            if (GameManager.S.playerOne) GameManager.S.strikeCountPlayerOne++;
+            if (GameManager.S.isPlayerOne) GameManager.S.strikeCountPlayerOne++;
             else GameManager.S.strikeCountPlayerTwo++;
 
 
