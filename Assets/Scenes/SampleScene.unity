@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 214349822}
   - component: {fileID: 214349821}
   - component: {fileID: 214349825}
-  - component: {fileID: 214349826}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -247,19 +246,8 @@ MonoBehaviour:
   choice3: {fileID: 1202772540}
   choice3Txt: z
   blankSpot: {fileID: 505446095}
-  wordGenerator: {fileID: 214349826}
---- !u!114 &214349826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214349820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37b10f848b60949be9e1866a8c1e8638, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  wordGenerator: {fileID: 0}
+  word: 
 --- !u!1 &288569006
 GameObject:
   m_ObjectHideFlags: 0

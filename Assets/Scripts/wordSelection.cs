@@ -14,7 +14,7 @@ public class wordSelection : MonoBehaviour
     //create a script that takes things from a .txt file and puts it into an array 
     public Tuple<string, string>[] wordArray { get; private set; }
 
-    private void Start()
+    private void Awake()
     {
         // Make the GameObject this script is attached to persistent across scenes
         DontDestroyOnLoad(gameObject);
