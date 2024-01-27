@@ -5,7 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using System;
-using UnityEngine.SceneManagement;
 
 public class HackController : MonoBehaviour
 {
@@ -22,18 +21,24 @@ public class HackController : MonoBehaviour
     public wordSelection wordGenerator;
 
     public string word;
-    
+
+    public List<Tuple<string, string>> toCheckList;
+
+    public Tuple<string, string> toCheck;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
 
-        Debug.Log(wordGenerator.GetType());
-        Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>().GetType());
+        // Debug.Log(wordGenerator.GetType());
+        // Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>().GetType());
         wordGenerator = GameObject.Find("Canvas").GetComponent<wordSelection>();
-        Debug.Log(wordGenerator.GetType());
+        // Debug.Log(wordGenerator.GetType());
         List<Tuple<string, string>> words = new List<Tuple<string, string>>(wordGenerator.getRandomWords());
+
+        toCheckList = words;
 
         choice1Txt = words[0].Item1;
         choice2Txt = words[1].Item1;
@@ -43,6 +48,8 @@ public class HackController : MonoBehaviour
         choice2.onClick.AddListener(ChangeBlankTo2);
         choice3.onClick.AddListener(ChangeBlankTo3);
         GameObject.Find("HackButton").GetComponent<Button>().onClick.AddListener(Hack);
+
+        Debug.Log(toCheckList);
     }
 
     // Update is called once per frame
@@ -60,6 +67,7 @@ public class HackController : MonoBehaviour
 
     void ChangeBlankTo1()
     {
+        toCheck = toCheckList[0];
         blankSpot.text = choice1.GetComponentInChildren<TMP_Text>().text;
     }
 
@@ -78,6 +86,7 @@ public class HackController : MonoBehaviour
         SceneManager.LoadScene("sabotageeScene");
         word = blankSpot.text;
         Debug.Log(word);
+        Debug.Log(toCheck);
     }
 
 }
