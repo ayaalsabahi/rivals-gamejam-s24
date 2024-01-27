@@ -12,11 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Credits.unity
     guid: dd26767089ccd4a10ac97cb48ba74a5a
   - enabled: 1
+    path: Assets/Scenes/winning.unity
+    guid: ff0841a78294d4bb38e1ad9141ce1655
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: faf262d75c4dc4486bc6d12d0a4a0a0d
   - enabled: 1
     path: Assets/Scenes/sabotageeScene.unity
     guid: fcee83bc0bc9649b8939a7201d30a1b8
+  - enabled: 1
+    path: Assets/Scenes/losing.unity
+    guid: c8d60a0ee9ed44e329d773719b7252b7
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: c232a99a4281a4e3abcfcfa92caac7e3

@@ -3,26 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public enum GameState { Menu, PreRound, PlayerOneSabotage, PlayerTwoGuess,
                         PlayerTwoSabotage, PlayerOneGuess, PostRound, GameOver };
 
+public enum winnerState { playerOneWin, playerTwoWin, playerOneLose, playerTwoLose, stillPlaying}
 public class GameManager : MonoBehaviour
 {
     public static GameManager S; // define the singleton
 
     public GameState currentState;
 
-    private float playerOneApproval;
-    private float playerTwoApproval;
+    public float playerOneApproval;
+    public float playerTwoApproval;
     private float timer;
     private float RATING_INCREMENT = 10.0f;
-    private float MAX_POINTS = 50.00f;
+    private float MAX_POINTS = 10.00f;
+    public int STRIKE_COUNT = 1;
 
     public GameObject playerOne;
     public GameObject playerTwo;
 
-    //winner starts at null
-    public GameObject winner;
+    //winner starts at being still playing
+    public winnerState winnerIs = winnerState.stillPlaying;
+    public int strikeCountPlayerOne = 0;
+    public int strikeCountPlayerTwo = 0;
 
     private void Awake()
     {
@@ -62,13 +67,14 @@ public class GameManager : MonoBehaviour
 
     public void CorrectAnswer(GameObject thePlayer)
     {
+        Debug.Log("Line 4");
         // thePlayer rating increases by 10 points
         IncreasePlayerRating(thePlayer, RATING_INCREMENT);
         // "Well said!" "Astute observation as always."
 
         // check for if player wins
-        if (playerOneApproval >= 100 || playerTwoApproval == 100)
-        { 
+        if (playerOneApproval >= MAX_POINTS || playerTwoApproval == MAX_POINTS)
+        {
             StopAllCoroutines();
             GameOverRoutine();
         }
@@ -88,13 +94,15 @@ public class GameManager : MonoBehaviour
 
     private void IncreasePlayerRating(GameObject thePlayer, float ratingIncrease)
     {
-        if (thePlayer == playerOne)
-            playerOneApproval += ratingIncrease;
-            if(playerOneApproval >= MAX_POINTS) winner = playerOne;
+        
+        playerOneApproval += ratingIncrease;
+        if (playerOneApproval >= MAX_POINTS) winnerIs = winnerState.playerOneWin;
 
         else
             playerTwoApproval += ratingIncrease;
-        if (playerTwoApproval >= MAX_POINTS) winner = playerTwo;
+        if (playerTwoApproval >= MAX_POINTS) winnerIs = winnerState.playerTwoWin;
+        
+
     }
 
     private void SwitchTurn()
