@@ -37,16 +37,17 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // initialize relevant variables
-        //playerOneRating = 0;
-        //playerTwoRating = 0;
+        playerOneApproval = 0;
+        playerTwoApproval = 0;
         GameManager.S.currentState = GameState.PreRound;
+        DontDestroyOnLoad(this);
         StartRound(playerOne);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void StartRound(GameObject thePlayer)
@@ -60,8 +61,17 @@ public class GameManager : MonoBehaviour
         // thePlayer rating increases by 10 points
         IncreasePlayerRating(thePlayer, RATING_INCREMENT);
         // "Well said!" "Astute observation as always."
-        // switches to other player's turn
-        SwitchTurn();
+
+        // check for if player wins
+        if (playerOneApproval >= 100 || playerTwoApproval == 100)
+        { 
+            StopAllCoroutines();
+            GameOverRoutine();
+        }
+        else {
+            // switches to other player's turn
+            SwitchTurn();
+        }
     }
 
     public void WrongAnswer(GameObject thePlayer)
@@ -84,5 +94,10 @@ public class GameManager : MonoBehaviour
     {
         GameManager.S.currentState = (GameManager.S.currentState == GameState.PlayerTwoSabotage)
             ? GameState.PlayerOneSabotage : GameState.PlayerTwoSabotage;
+    }
+
+    private IEnumerator GameOverRoutine()
+    {
+        yield return new WaitForSeconds(1.0f);
     }
 }
