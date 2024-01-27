@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public enum GameState { Menu, PreRound, PlayerOneSabotage, PlayerTwoGuess,
-                        PlayerTwoSabotage, PlayerOneGuess, PostRound, GameOver };
+public enum GameState { Menu, PreRound, Sabotaging, Guessing, PostRound, GameOver };
 
 public enum winnerState { playerOneWin, playerTwoWin, playerOneLose, playerTwoLose, stillPlaying}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager S; // define the singleton
@@ -21,10 +21,8 @@ public class GameManager : MonoBehaviour
     private float MAX_POINTS = 10.00f;
     public int STRIKE_COUNT = 1;
 
-    public GameObject playerOnePrefab;
-    public GameObject playerTwoPrefab;
-    private GameObject playerOne;
-    private GameObject playerTwo;
+    public GameObject playerOne;
+    public GameObject playerTwo;
 
     //winner starts at being still playing
     public winnerState winnerIs = winnerState.stillPlaying;
@@ -48,13 +46,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // initialize relevant variables
-        playerOne = Instantiate(playerOnePrefab);
-        playerTwo = Instantiate(playerTwoPrefab);
         playerOneApproval = 0;
         playerTwoApproval = 0;
         GameManager.S.currentState = GameState.PreRound;
         DontDestroyOnLoad(this);
-        StartRound(playerOne);
+        StartRound();
     }
 
     // Update is called once per frame
@@ -63,15 +59,9 @@ public class GameManager : MonoBehaviour
         // check for winner
     }
 
-    private void StartRound(GameObject thePlayer)
+    private void StartRound()
     {
-        GameManager.S.currentState = (thePlayer == playerOne)
-            ? GameState.PlayerOneSabotage : GameState.PlayerTwoSabotage;
-    }
-
-    public void GoToSabotagee()
-    {
-
+        GameManager.S.currentState = GameState.Sabotaging;
     }
 
     public void CorrectAnswer(GameObject thePlayer)
@@ -89,7 +79,6 @@ public class GameManager : MonoBehaviour
         }
         else {
             // switches to other player's turn
-            SwitchTurn();
         }
     }
 
@@ -98,26 +87,21 @@ public class GameManager : MonoBehaviour
         // thePlayer's rating stays the same
         // "That... didn't sound right." "Boo!" "...What?"
         // switches to other player's turn
-        SwitchTurn();
     }
 
     private void IncreasePlayerRating(GameObject thePlayer, float ratingIncrease)
     {
-        
         playerOneApproval += ratingIncrease;
         if (playerOneApproval >= MAX_POINTS) winnerIs = winnerState.playerOneWin;
 
         else
             playerTwoApproval += ratingIncrease;
         if (playerTwoApproval >= MAX_POINTS) winnerIs = winnerState.playerTwoWin;
-        
-
     }
 
-    private void SwitchTurn()
+    public void SwitchTurn()
     {
-        GameManager.S.currentState = (GameManager.S.currentState == GameState.PlayerTwoSabotage)
-            ? GameState.PlayerOneSabotage : GameState.PlayerTwoSabotage;
+        
     }
 
     private IEnumerator GameOverRoutine()
