@@ -34,7 +34,7 @@ public class HackController : MonoBehaviour
 
         // Debug.Log(wordGenerator.GetType());
         // Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>().GetType());
-        wordGenerator = GameObject.Find("Canvas").GetComponent<wordSelection>();
+        wordGenerator = GameObject.Find("wordManager").GetComponent<wordSelection>();
         // Debug.Log(wordGenerator.GetType());
         List<Tuple<string, string>> words = new List<Tuple<string, string>>(wordGenerator.getRandomWords());
 
@@ -73,11 +73,13 @@ public class HackController : MonoBehaviour
 
     void ChangeBlankTo2()
     {
+        toCheck = toCheckList[1];
         blankSpot.text = choice2.GetComponentInChildren<TMP_Text>().text;
     }
 
     void ChangeBlankTo3()
     {
+        toCheck = toCheckList[2];
         blankSpot.text = choice3.GetComponentInChildren<TMP_Text>().text;
     }
 
