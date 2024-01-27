@@ -18,8 +18,6 @@ public class wordSelection : MonoBehaviour
         // Make the GameObject this script is attached to persistent across scenes
         DontDestroyOnLoad(gameObject);
         wordArray = getWords();
-        getRandomWords();
-        
     }
 
 
@@ -81,17 +79,8 @@ public class wordSelection : MonoBehaviour
         selectedWords[0] = wordArray[firstChoice];
         selectedWords[1] = wordArray[secondChoice];
         selectedWords[2] = wordArray[thirdChoice];
-
-
-        for (int i = 0; i < selectedWords.Length; i++)
-        {
-            Debug.Log($"Selected Word {i + 1}: {selectedWords[i].Item1}, {selectedWords[i].Item2}");
-        }
-
         // Return the array with the selected tuples
         return selectedWords;
-
-
 
     }
 
