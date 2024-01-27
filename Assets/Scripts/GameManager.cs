@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum GameState { Menu, PreRound, PlayerOneSabotage, PlayerOneTwoGuess,
+public enum GameState { Menu, PreRound, PlayerOneSabotage, PlayerTwoGuess,
                         PlayerTwoSabotage, PlayerOneGuess, PostRound, GameOver };
 
 public class GameManager : MonoBehaviour
@@ -16,9 +16,13 @@ public class GameManager : MonoBehaviour
     private float playerTwoApproval;
     private float timer;
     private float RATING_INCREMENT = 10.0f;
+    private float MAX_POINTS = 50.00f;
 
     public GameObject playerOne;
     public GameObject playerTwo;
+
+    //winner starts at null
+    public GameObject winner;
 
     private void Awake()
     {
@@ -76,8 +80,11 @@ public class GameManager : MonoBehaviour
     {
         if (thePlayer == playerOne)
             playerOneApproval += ratingIncrease;
+            if(playerOneApproval >= MAX_POINTS) winner = playerOne;
+
         else
             playerTwoApproval += ratingIncrease;
+        if (playerTwoApproval >= MAX_POINTS) winner = playerTwo;
     }
 
     private void SwitchTurn()
