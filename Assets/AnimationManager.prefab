@@ -123,6 +123,10 @@ MonoBehaviour:
   janiceRenderer: {fileID: 0}
   janice: {fileID: 21300000, guid: 555bd68fa8d20482f9e9ed1cf50dad13, type: 3}
   janiceRaised: {fileID: 21300000, guid: 6c611a2520497439e95248b3eb26b4b3, type: 3}
+  janiceNervous: {fileID: 21300000, guid: 614942df353204ecfb166b4f0b0a5fd5, type: 3}
+  janiceLose: {fileID: 21300000, guid: 32bc98f75a774457690d73f2d0311e42, type: 3}
   chadRenderer: {fileID: 0}
   chad: {fileID: 21300000, guid: 95913ed791a7743fd987b72300d49e10, type: 3}
   chadRaised: {fileID: 21300000, guid: ce5fad0d215924b1ca199c6469fdc6dd, type: 3}
+  chadNervous: {fileID: 21300000, guid: e8fe27333d8074d8fb906b4e0d5e9744, type: 3}
+  chadLose: {fileID: 21300000, guid: 7d35a34861d21450782ddecf79788e15, type: 3}

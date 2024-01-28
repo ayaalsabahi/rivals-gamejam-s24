@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("animator speed is=" + stopwatchAnimator.speed);
 
             Debug.Log("animation just stopped");
-            animController.ChangeSprite();
+            animController.CorrectSprite();
         }
         else
         {
@@ -185,7 +185,16 @@ public class GameManager : MonoBehaviour
     {
         NowGuessing();
         TimerAnimationStuff();
+    }
 
+    public void MakeSpritesNervous()
+    {
+        animController.NervousSprite();
+    }
+
+    public void MakeSpritesLose()
+    {
+        animController.LoseSprite();
     }
 
     private IEnumerator PlayerTransition()
