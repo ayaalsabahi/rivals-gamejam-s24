@@ -29,13 +29,14 @@ public class UISwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(SceneManager.GetActiveScene().name != "SampleScene")
+        if (SceneManager.GetActiveScene().name != "SampleScene")
         {
+           
             if (GM.isPlayerOne)
             {
                 SetP1UI();
             }
-            else
+            if (!GM.isPlayerOne)
             {
                 SetP2UI();
             }

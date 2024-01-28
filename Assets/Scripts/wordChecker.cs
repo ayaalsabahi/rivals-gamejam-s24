@@ -24,10 +24,15 @@ public class wordChecker : MonoBehaviour
     private wordSelection test;
     bool isFound = false;
 
+    private void Awake()
+    {
+        //GameManager.S.SwitchTurn();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.S.SwitchTurn();
+       
         GameManager.S.NowGuessing();
         test = GameObject.Find("wordManager").GetComponent<wordSelection>();
         textBox.onEndEdit.AddListener(HandleInput);
@@ -40,6 +45,7 @@ public class wordChecker : MonoBehaviour
 
     private void Update()
     {
+        
         loadStrikeandPoints();
         if (timer > epsilon && !isFound)
         {

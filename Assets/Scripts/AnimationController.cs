@@ -44,7 +44,7 @@ public class AnimationController : MonoBehaviour
             Debug.Log("Animator is null :(");
         }
 
-        animator.speed = 0.0f;
+        //animator.speed = 0.0f;
         Debug.Log("reached stop anim in anim controller");
         animator.SetBool("IsPaused", true);
     }

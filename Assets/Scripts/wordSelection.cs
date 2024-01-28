@@ -7,6 +7,8 @@ using System.IO;
 
 public class wordSelection : MonoBehaviour
 {
+
+
     public static wordSelection WordSelection;
 
     public (string, string) currWord = ("scrambled", "word");

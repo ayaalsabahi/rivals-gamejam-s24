@@ -159,6 +159,7 @@ public class GameManager : MonoBehaviour
 
     public void SwitchTurn()
     {
+        Debug.Log("switch turn called");
         isPlayerOne = !isPlayerOne;
         StartCoroutine(PlayerTransition());
         //NowSabotaging();
@@ -179,8 +180,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Coroutine started");
         if (SceneManager.GetActiveScene().name == "SampleScene")
         {
-            GameObject chadPeeking = GameObject.FindWithTag("ChadPeeking");
-            GameObject janicePeeking = GameObject.FindWithTag("JanicePeeking");
+            GameObject chadPeeking = GameObject.Find("SabotageUIP1");
+            GameObject janicePeeking = GameObject.Find("SabotageUIP2");
             if (chadPeeking == null)
             {
                 Debug.Log("Could not find chad overlay");
@@ -189,15 +190,18 @@ public class GameManager : MonoBehaviour
             {
                 Debug.Log("Could not find janice overlay");
             }
-            else if (chadPeeking != null && !isPlayerOne)
+
+            else if (chadPeeking != null && isPlayerOne)
             {
                 Debug.Log("Chad activated");
                 chadPeeking.SetActive(true);
+                janicePeeking.SetActive(false);
             }
-            else if (janicePeeking != null && isPlayerOne)
+            else if (janicePeeking != null && !isPlayerOne)
             {
                 Debug.Log("chad deact");
                 chadPeeking.SetActive(false);
+                janicePeeking.SetActive(true);
             }
 
             yield return new WaitForSeconds(1.5f);

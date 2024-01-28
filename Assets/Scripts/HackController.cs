@@ -82,11 +82,12 @@ public class HackController : MonoBehaviour
 
         if(blankSpot.text != "")
         {
-            SceneManager.LoadScene("sabotageeScene");
+            GameManager.S.SwitchTurn();
             GameManager.S.TimerAnimationStuff();
             wordGenerator.currWord.Item1 = toCheck.Item1;
             wordGenerator.currWord.Item2 = toCheck.Item2;
             word = blankSpot.text;
+            SceneManager.LoadScene("sabotageeScene");
         }
     }
 
