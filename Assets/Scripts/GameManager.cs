@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     private float timer;
     public float RATING_INCREMENT = 10.0f;
     public float MAX_POINTS = 50.00f;
-    public int STRIKE_COUNT = 5;
+    public int STRIKE_COUNT = 3;
 
     public GameObject playerOnePrefab;
     public GameObject playerTwoPrefab;
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         else {
             // switches to other player's turn
             Debug.Log("is player one after = " + isPlayerOne);
-            SwitchTurn();
+            //SwitchTurn();
             Debug.Log("is player one after = " + isPlayerOne);
 
         }

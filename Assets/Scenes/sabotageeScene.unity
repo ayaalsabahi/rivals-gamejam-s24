@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8116063157364732372, guid: d1a3b627c37734439872f5dac9fe5c68, type: 3}
       propertyPath: STRIKE_COUNT
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8970462761504075840, guid: d1a3b627c37734439872f5dac9fe5c68, type: 3}
       propertyPath: m_Name
@@ -1579,9 +1579,9 @@ MonoBehaviour:
   textBox: {fileID: 209788836}
   timerText: {fileID: 753107912}
   garbledWord: {fileID: 431315142}
+  goToSabotagerButton: {fileID: 1716490054}
   strikesCount: {fileID: 564990150}
   scoreCount: {fileID: 1642005613}
-  goToSabotagerButton: {fileID: 1716490054}
 --- !u!4 &1647534183
 Transform:
   m_ObjectHideFlags: 0
