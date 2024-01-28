@@ -19,6 +19,7 @@ public class AnimationController : MonoBehaviour
     public Sprite chadNervous;
     public Sprite chadLose;
 
+    public bool isVisible;
 
     void Awake()
     {
@@ -33,12 +34,24 @@ public class AnimationController : MonoBehaviour
 
     void Update()
     {
+        if (!isVisible)
+        {
+            this.GetComponentInChildren<SpriteRenderer>().enabled = false;
+        }
+        else {
+            this.GetComponentInChildren<SpriteRenderer>().enabled = true;
+        }
         if (SceneManager.GetActiveScene().name == "sabotageeScene")
         {
+            isVisible = true;
             if (!GameManager.S.isPlayerOne)
                 chadRenderer = GameObject.FindWithTag("Chad").GetComponent<SpriteRenderer>();
             else
                 janiceRenderer = GameObject.FindWithTag("Janice").GetComponent<SpriteRenderer>();
+        }
+        else
+        {
+            isVisible = false;
         }
     }
 

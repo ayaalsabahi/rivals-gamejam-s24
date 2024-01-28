@@ -120,13 +120,13 @@ public class wordChecker : MonoBehaviour
     {
         if (GameManager.S.isPlayerOne)
         {
-            scoreCount.text = $"P1 Score: {GameManager.S.playerOneApproval}/{GameManager.S.MAX_POINTS}";
-            strikesCount.text = $"lives: {GameManager.S.strikeCountPlayerOne}/{GameManager.S.STRIKE_COUNT}";
+            scoreCount.text = $"P1 Rating: {GameManager.S.playerOneApproval*10.0f}/{GameManager.S.MAX_POINTS*10.0f}";
+            strikesCount.text = $"Strikes: {GameManager.S.strikeCountPlayerOne * 10.0f}/{GameManager.S.STRIKE_COUNT * 10.0f}";
         }
         else
         {
-            scoreCount.text = $"P2 Score: {GameManager.S.playerTwoApproval}/{GameManager.S.MAX_POINTS}";
-            strikesCount.text = $"lives: {GameManager.S.strikeCountPlayerTwo}/{GameManager.S.STRIKE_COUNT}";
+            scoreCount.text = $"P2 Rating: {GameManager.S.playerTwoApproval * 10.0f}/{GameManager.S.MAX_POINTS * 10.0f}";
+            strikesCount.text = $"Strikes: {GameManager.S.strikeCountPlayerTwo * 10.0f}/{GameManager.S.STRIKE_COUNT * 10.0f}";
         }
     }
 }

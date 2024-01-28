@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
     private GameObject stopwatch;
     private Animator stopwatchAnimator;
     private AnimationController animController;
-    public float RATING_INCREMENT = 10.0f;
-    public float MAX_POINTS = 50.00f;
+    public float RATING_INCREMENT = 1.0f;
+    public float MAX_POINTS = 10.00f;
     public int STRIKE_COUNT = 3;
 
     public GameObject playerOnePrefab;
