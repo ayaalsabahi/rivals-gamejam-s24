@@ -32,7 +32,7 @@ public class wordChecker : MonoBehaviour
         test = GameObject.Find("wordManager").GetComponent<wordSelection>();
         textBox.onEndEdit.AddListener(HandleInput);
         garbledWord.text = test.currWord.Item1;
-        goToSabotagerButton.enabled = false;
+        goToSabotagerButton.gameObject.SetActive(false);
         goToSabotagerButton.onClick.AddListener(GoToSabotagerOnClick);
     }
 
@@ -45,13 +45,13 @@ public class wordChecker : MonoBehaviour
         }
         else
         {
-            goToSabotagerButton.enabled = true;
+            goToSabotagerButton.gameObject.SetActive(true);
         }
 
-        if (isFound && goToSabotagerButton.enabled == false)
+        if (isFound && !goToSabotagerButton.gameObject.activeSelf)
         {
             GameManager.S.currentState = GameState.PostRound;
-            goToSabotagerButton.enabled = true;
+            goToSabotagerButton.gameObject.SetActive(true);
         }
     }
 
