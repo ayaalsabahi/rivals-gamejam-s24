@@ -31,14 +31,14 @@ public class UISwitcher : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().name == "SampleScene")
         {
-            if (GM.isPlayerOne)
-            {
-                channelName.text = name1;
-            }
-            else
-            {
-                channelName.text = name2;
-            }
+            //if (GM.isPlayerOne)
+            //{
+            //    channelName.text = name1;
+            //}
+            //else
+            //{
+            //    channelName.text = name2;
+            //}
         }
 
         if(SceneManager.GetActiveScene().name != "SampleScene")
