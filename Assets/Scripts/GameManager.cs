@@ -84,6 +84,10 @@ public class GameManager : MonoBehaviour
         }
         else {
             // switches to other player's turn
+            Debug.Log("is player one after = " + isPlayerOne);
+            SwitchTurn();
+            Debug.Log("is player one after = " + isPlayerOne);
+
         }
     }
 
@@ -113,10 +117,7 @@ public class GameManager : MonoBehaviour
 
     public void SwitchTurn()
     {
-        if (!isPlayerOne)
-        {
-            isPlayerOne = true;
-        }
+        isPlayerOne = !isPlayerOne;
     }
 
     private IEnumerator GameOverRoutine()
