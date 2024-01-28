@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2135435261, guid: e9909fb5b0cbe4f22952f0499a5d8d4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c9680e4af606464eaa4ad185c7996ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseAnimation: 0
+  pauseAnimation: 1
   janiceRenderer: {fileID: 0}
   janice: {fileID: 21300000, guid: 555bd68fa8d20482f9e9ed1cf50dad13, type: 3}
   janiceRaised: {fileID: 21300000, guid: 6c611a2520497439e95248b3eb26b4b3, type: 3}

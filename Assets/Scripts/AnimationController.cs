@@ -40,17 +40,25 @@ public class AnimationController : MonoBehaviour
 
     public void StopAnimation()
     {
-        animator.speed = 0f;
+        if(animator == null) {
+            Debug.Log("Animator is null :(");
+        }
+
+        animator.speed = 0.0f;
+        Debug.Log("reached stop anim in anim controller");
+        animator.SetBool("IsPaused", true);
     }
 
     public void StartAnimation()
     {
-        animator.speed = 1.0f;
+        animator.speed = 5.0f;
     }
 
     public void ResetTimerAnimation()
     {
+        Debug.Log("Timer was just restarted");
         animator.Play("stopwatchgodown", -1, 0f);
+
     }
 
     public void ChangeSprite()
