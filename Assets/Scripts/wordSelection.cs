@@ -8,7 +8,9 @@ using System.IO;
 public class wordSelection : MonoBehaviour
 {
     public static wordSelection WordSelection;
+
     public (string, string) currWord = ("scrambled", "word");
+    // public (string, string) currWord = ("scrambled", "word");
 
     
     //create a script that takes things from a .txt file and puts it into an array 

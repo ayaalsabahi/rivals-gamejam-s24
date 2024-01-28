@@ -32,10 +32,7 @@ public class HackController : MonoBehaviour
     void Start()
     {
 
-        // Debug.Log(wordGenerator.GetType());
-        // Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>().GetType());
         wordGenerator = GameObject.Find("wordManager").GetComponent<wordSelection>();
-        // Debug.Log(wordGenerator.GetType());
         List<Tuple<string, string>> words = new List<Tuple<string, string>>(wordGenerator.getRandomWords());
 
         toCheckList = words;
@@ -48,8 +45,6 @@ public class HackController : MonoBehaviour
         choice2.onClick.AddListener(ChangeBlankTo2);
         choice3.onClick.AddListener(ChangeBlankTo3);
         GameObject.Find("HackButton").GetComponent<Button>().onClick.AddListener(Hack);
-
-        Debug.Log(toCheckList);
     }
 
     // Update is called once per frame
@@ -86,9 +81,9 @@ public class HackController : MonoBehaviour
     public void Hack()
     {
         SceneManager.LoadScene("sabotageeScene");
+        wordGenerator.currWord.Item1 = toCheck.Item1;
+        wordGenerator.currWord.Item2 = toCheck.Item2;
         word = blankSpot.text;
-        Debug.Log(word);
-        Debug.Log(toCheck);
     }
 
 }

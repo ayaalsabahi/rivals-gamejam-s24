@@ -12,26 +12,30 @@ public class wordChecker : MonoBehaviour
     public TMP_InputField textBox;
     public TMP_Text timerText;
     public TMP_Text garbledWord;
-    public TMP_Text strikesCount;
-    public TMP_Text scoreCount;
     public Button goToSabotagerButton;
     
 
     //logic aspects 
     private float timer = 10f;
     private float epsilon = 0.0001f;
-    wordSelection test = new wordSelection();
+    // wordSelection test = new wordSelection();
+    private wordSelection test;
+    
+
+
+
     bool isFound = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        test = GameObject.Find("wordManager").GetComponent<wordSelection>();
         textBox.onEndEdit.AddListener(HandleInput);
         garbledWord.text = test.currWord.Item1;
         goToSabotagerButton.interactable = false;
         goToSabotagerButton.onClick.AddListener(GoToSabotagerOnClick);
-        loadStrikeandPoints();
-       
+
+
     }
 
     private void Update()
@@ -43,8 +47,8 @@ public class wordChecker : MonoBehaviour
         }
         else
         {
+           
             goToSabotagerButton.interactable = true;
-            HandleLosing();
         }
 
         if (isFound)
@@ -56,7 +60,6 @@ public class wordChecker : MonoBehaviour
     //handles the user input 
     private void HandleInput(string inputText)
     {
-        
         Debug.Log("User input: " + inputText);
         
 
@@ -68,7 +71,6 @@ public class wordChecker : MonoBehaviour
 
         if (inputTextLower == test.currWord.Item2.ToLower()) HandleWinning();
         else HandleLosing();
-        loadStrikeandPoints();
     }
 
     private void GoToSabotagerOnClick()
@@ -81,7 +83,6 @@ public class wordChecker : MonoBehaviour
     private void HandleWinning()
     {
         isFound = true;
-
         if (GameManager.S.isPlayerOne) GameManager.S.CorrectAnswer(GameManager.S.playerOne);
         else GameManager.S.CorrectAnswer(GameManager.S.playerTwo);
         if (GameManager.S.winnerIs == winnerState.playerOneWin || GameManager.S.winnerIs == winnerState.playerTwoWin) { 
@@ -89,6 +90,7 @@ public class wordChecker : MonoBehaviour
         }
         else
         {
+            //add to the progress bar
             ColorBlock colors = goToSabotagerButton.colors;
             colors.normalColor = Color.green;
             goToSabotagerButton.colors = colors;
@@ -97,31 +99,19 @@ public class wordChecker : MonoBehaviour
 
     private void HandleLosing()
     {
+            if (GameManager.S.strikeCountPlayerOne >= GameManager.S.STRIKE_COUNT || GameManager.S.strikeCountPlayerTwo >= GameManager.S.STRIKE_COUNT) SceneManager.LoadScene("losing");
 
-        if (GameManager.S.isPlayerOne) GameManager.S.WrongAnswer(GameManager.S.playerOne);
-        else GameManager.S.WrongAnswer(GameManager.S.playerTwo);
-        if (GameManager.S.strikeCountPlayerOne >= GameManager.S.STRIKE_COUNT || GameManager.S.strikeCountPlayerTwo >= GameManager.S.STRIKE_COUNT) SceneManager.LoadScene("losing");
+            if (GameManager.S.isPlayerOne) GameManager.S.strikeCountPlayerOne++;
+            else GameManager.S.strikeCountPlayerTwo++;
+
 
             //add the strike check count
             ColorBlock colors = goToSabotagerButton.colors;
             colors.normalColor = Color.red;
             goToSabotagerButton.colors = colors;
     }
+    //progress bar function
 
 
-    //loads points and strike count on the screen
-    private void loadStrikeandPoints()
-    {
-        if (GameManager.S.isPlayerOne)
-        {
-            scoreCount.text = $"Score: {GameManager.S.playerOneApproval}/{GameManager.S.MAX_POINTS}";
-            strikesCount.text = $"lives: {GameManager.S.strikeCountPlayerOne}/{GameManager.S.STRIKE_COUNT}";
-        }
-
-        else
-        {
-            scoreCount.text = $"Score: {GameManager.S.playerTwoApproval}/{GameManager.S.MAX_POINTS}";
-            strikesCount.text = $"lives: {GameManager.S.strikeCountPlayerTwo}/{GameManager.S.STRIKE_COUNT}";
-        }
-    }
+    //strike function
 }
