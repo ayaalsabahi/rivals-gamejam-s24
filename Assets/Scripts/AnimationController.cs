@@ -11,9 +11,14 @@ public class AnimationController : MonoBehaviour
     public SpriteRenderer janiceRenderer;
     public Sprite janice;
     public Sprite janiceRaised;
+    public Sprite janiceNervous;
+    public Sprite janiceLose;
     public SpriteRenderer chadRenderer;
     public Sprite chad;
     public Sprite chadRaised;
+    public Sprite chadNervous;
+    public Sprite chadLose;
+
 
     void Awake()
     {
@@ -35,7 +40,6 @@ public class AnimationController : MonoBehaviour
             else
                 janiceRenderer = GameObject.FindWithTag("Janice").GetComponent<SpriteRenderer>();
         }
-       
     }
 
     public void StopAnimation()
@@ -51,7 +55,7 @@ public class AnimationController : MonoBehaviour
 
     public void StartAnimation()
     {
-        animator.speed = 5.0f;
+        animator.speed = 1.0f;
     }
 
     public void ResetTimerAnimation()
@@ -61,13 +65,29 @@ public class AnimationController : MonoBehaviour
 
     }
 
-    public void ChangeSprite()
+    public void CorrectSprite()
     {
         if (!GameManager.S.isPlayerOne)
             chadRenderer.sprite = chadRaised;
         else
             janiceRenderer.sprite = janiceRaised;
         
+    }
+
+    public void NervousSprite()
+    {
+        if (!GameManager.S.isPlayerOne)
+            chadRenderer.sprite = chadNervous;
+        else
+            janiceRenderer.sprite = janiceNervous;
+    }
+
+    public void LoseSprite()
+    {
+        if (!GameManager.S.isPlayerOne)
+            chadRenderer.sprite = chadLose;
+        else
+            janiceRenderer.sprite = janiceLose;
     }
 
 }
