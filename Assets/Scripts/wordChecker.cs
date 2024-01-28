@@ -32,10 +32,8 @@ public class wordChecker : MonoBehaviour
         test = GameObject.Find("wordManager").GetComponent<wordSelection>();
         textBox.onEndEdit.AddListener(HandleInput);
         garbledWord.text = test.currWord.Item1;
-        goToSabotagerButton.interactable = false;
+        goToSabotagerButton.gameObject.SetActive(false);
         goToSabotagerButton.onClick.AddListener(GoToSabotagerOnClick);
-
-
     }
 
     private void Update()
@@ -47,13 +45,13 @@ public class wordChecker : MonoBehaviour
         }
         else
         {
-           
-            goToSabotagerButton.interactable = true;
+            goToSabotagerButton.gameObject.SetActive(true);
         }
 
-        if (isFound)
+        if (isFound && !goToSabotagerButton.gameObject.activeSelf)
         {
-            goToSabotagerButton.interactable = true;
+            GameManager.S.currentState = GameState.PostRound;
+            goToSabotagerButton.gameObject.SetActive(true);
         }
     }
 
@@ -75,7 +73,9 @@ public class wordChecker : MonoBehaviour
 
     private void GoToSabotagerOnClick()
     {
+        goToSabotagerButton.enabled = false;
         //add some sort of transition
+        GameManager.S.NowSabotaging();
         SceneManager.LoadScene("SampleScene");
     }
 
@@ -83,9 +83,13 @@ public class wordChecker : MonoBehaviour
     private void HandleWinning()
     {
         isFound = true;
+
         if (GameManager.S.isPlayerOne) GameManager.S.CorrectAnswer(GameManager.S.playerOne);
         else GameManager.S.CorrectAnswer(GameManager.S.playerTwo);
-        if (GameManager.S.winnerIs == winnerState.playerOneWin || GameManager.S.winnerIs == winnerState.playerTwoWin) { 
+
+        if (GameManager.S.winnerIs == winnerState.playerOneWin || GameManager.S.winnerIs == winnerState.playerTwoWin)
+        {
+            GameManager.S.currentState = GameState.GameOver;
             SceneManager.LoadScene("winning");
         }
         else
