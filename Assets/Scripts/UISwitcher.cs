@@ -24,9 +24,6 @@ public class UISwitcher : MonoBehaviour
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         P1UI = GameObject.Find("SabotageUIP1");
         P2UI = GameObject.Find("SabotageUIP2");
-        channelName = GameObject.Find("ReportingChannel").GetComponent<TMP_Text>();
-        name1 = "blue team";
-        name2 = "red team";
     }
 
     // Update is called once per frame
@@ -45,13 +42,11 @@ public class UISwitcher : MonoBehaviour
     {
         P1UI.SetActive(true);
         P2UI.SetActive(false);
-        channelName.text = name1;
     }
 
     void SetP2UI()
     {
         P2UI.SetActive(true);
         P1UI.SetActive(false);
-        channelName.text = name2;
     }
 }

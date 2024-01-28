@@ -56,8 +56,11 @@ public class AnimationController : MonoBehaviour
 
     public void ChangeSprite()
     {
-        janiceRenderer.sprite = janiceRaised;
-        chadRenderer.sprite = chadRaised;
+        if (!GameManager.S.isPlayerOne)
+            chadRenderer.sprite = chadRaised;
+        else
+            janiceRenderer.sprite = janiceRaised;
+        
     }
 
 }
