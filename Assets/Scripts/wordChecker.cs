@@ -65,10 +65,15 @@ public class wordChecker : MonoBehaviour
     {
         string inputTextLower = inputText.ToLower();
         //when enter is pressed, text goes bye bye
-        if (textBox != null && timer > epsilon) textBox.text = "";
 
-        if (inputTextLower == test.currWord.Item2.ToLower()) HandleWinning();
-        else HandleLosing();
+        if(timer > epsilon)
+        {
+            if (textBox != null) textBox.text = "";
+            if (inputTextLower == test.currWord.Item2.ToLower() && !isFound) HandleWinning();
+            else HandleLosing();
+        }
+
+        
         
     }
 
