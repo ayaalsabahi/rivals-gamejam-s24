@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
         {
             S = this;
         }
+        SetUpStopwatch();
     }
 
     // Start is called before the first frame update
@@ -58,7 +59,6 @@ public class GameManager : MonoBehaviour
         playerOneApproval = 0;
         playerTwoApproval = 0;
         GameManager.S.currentState = GameState.PreRound;
-        SetUpStopwatch();
         DontDestroyOnLoad(this);
         StartRound();
     }
@@ -72,7 +72,13 @@ public class GameManager : MonoBehaviour
     private void StartRound()
     {
         NowSabotaging();
-        animController.ResetAnimation();
+        animController.ResetTimerAnimation();
+    }
+
+    public void TimerAnimationStuff()
+    {
+        animController.ResetTimerAnimation();
+        animController.StartAnimation();
     }
 
     private void SetUpStopwatch()
@@ -88,8 +94,10 @@ public class GameManager : MonoBehaviour
         IncreasePlayerRating(thePlayer, RATING_INCREMENT);
         // "Well said!" "Astute observation as always."
 
+        Debug.Log("got correct answer");
         if (animController != null)
         {
+            Debug.Log("anim controller not null");
             animController.StopAnimation();
             animController.ChangeSprite();
         }

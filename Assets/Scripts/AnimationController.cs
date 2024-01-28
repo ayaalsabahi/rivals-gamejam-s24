@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AnimationController : MonoBehaviour
 {
@@ -14,10 +15,27 @@ public class AnimationController : MonoBehaviour
     public Sprite chad;
     public Sprite chadRaised;
 
-    void Start()
+    void Awake()
     {
         // Get the Animator component attached to the GameObject
         animator = GetComponent<Animator>();
+        if (SceneManager.GetActiveScene().name == "sabotageeScene")
+        {
+            chadRenderer = GameObject.FindWithTag("Chad").GetComponent<SpriteRenderer>();
+        janiceRenderer = GameObject.FindWithTag("Janice").GetComponent<SpriteRenderer>();
+        }
+    }
+
+    void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "sabotageeScene")
+        {
+            if (!GameManager.S.isPlayerOne)
+                chadRenderer = GameObject.FindWithTag("Chad").GetComponent<SpriteRenderer>();
+            else
+                janiceRenderer = GameObject.FindWithTag("Janice").GetComponent<SpriteRenderer>();
+        }
+       
     }
 
     public void StopAnimation()
@@ -25,8 +43,14 @@ public class AnimationController : MonoBehaviour
         animator.speed = 0f;
     }
 
-    public void ResetAnimation()
+    public void StartAnimation()
     {
+        animator.speed = 1.0f;
+    }
+
+    public void ResetTimerAnimation()
+    {
+        Debug.Log(animator);
         animator.Play("stopwatchgodown", -1, 0f);
     }
 
