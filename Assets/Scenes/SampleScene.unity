@@ -380,9 +380,9 @@ MonoBehaviour:
   GM: {fileID: 0}
   P1UI: {fileID: 0}
   P2UI: {fileID: 0}
-  name1: 
-  name2: 
-  channelName: {fileID: 0}
+  name1: Channel X Scrambler
+  name2: Channel Y Scrambler
+  channelName: {fileID: 2075967084}
 --- !u!114 &214349828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,7 +523,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -51, y: 217}
-  m_SizeDelta: {x: 336.865, y: 59.8871}
+  m_SizeDelta: {x: 336.865, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288569008
 MonoBehaviour:
@@ -1513,7 +1513,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -50.999878, y: -16.559662}
-  m_SizeDelta: {x: 336.865, y: 59.8871}
+  m_SizeDelta: {x: 336.865, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1202772540
 MonoBehaviour:
@@ -2205,7 +2205,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -50.999878, y: 100.22014}
-  m_SizeDelta: {x: 336.865, y: 59.8871}
+  m_SizeDelta: {x: 336.865, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1765161188
 MonoBehaviour:
