@@ -48,7 +48,9 @@ MonoBehaviour:
   currentState: 0
   playerOneApproval: 0
   playerTwoApproval: 0
-  STRIKE_COUNT: 1
+  RATING_INCREMENT: 10
+  MAX_POINTS: 50
+  STRIKE_COUNT: 3
   playerOnePrefab: {fileID: 0}
   playerTwoPrefab: {fileID: 0}
   playerOne: {fileID: 0}

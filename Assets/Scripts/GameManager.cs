@@ -19,9 +19,9 @@ public class GameManager : MonoBehaviour
     public float playerOneApproval;
     public float playerTwoApproval;
     private float timer;
-    private float RATING_INCREMENT = 10.0f;
-    private float MAX_POINTS = 50.00f;
-    public int STRIKE_COUNT = 2;
+    public float RATING_INCREMENT = 10.0f;
+    public float MAX_POINTS = 50.00f;
+    public int STRIKE_COUNT = 5;
 
     public GameObject playerOnePrefab;
     public GameObject playerTwoPrefab;
@@ -92,6 +92,8 @@ public class GameManager : MonoBehaviour
         // thePlayer's rating stays the same
         // "That... didn't sound right." "Boo!" "...What?"
         // switches to other player's turn
+        if (isPlayerOne) strikeCountPlayerOne++;
+        else strikeCountPlayerTwo++;
     }
 
     private void IncreasePlayerRating(GameObject thePlayer, float ratingIncrease)
