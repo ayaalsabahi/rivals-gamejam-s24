@@ -522,7 +522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -362, y: 130}
+  m_AnchoredPosition: {x: -391, y: -41}
   m_SizeDelta: {x: 336.865, y: 59.8871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &288569008
@@ -912,8 +912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Example Phrase Example Phrase Example Phrase Example Phrase Example Phrase
-    Example Phrase Example Phrase Example Phrase '
+  m_text: ' '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8dc2fa46974bd4aae858c6d07685edcf, type: 2}
   m_sharedMaterial: {fileID: 4567262487476758133, guid: 8dc2fa46974bd4aae858c6d07685edcf, type: 2}
@@ -1006,7 +1005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 181, y: 100}
+  m_AnchoredPosition: {x: -70, y: 145}
   m_SizeDelta: {x: 294.6968, y: 68}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
@@ -1513,7 +1512,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -361.9999, y: -103.55964}
+  m_AnchoredPosition: {x: -390.9999, y: -274.55966}
   m_SizeDelta: {x: 336.865, y: 59.8871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1202772540
@@ -1950,7 +1949,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -47, y: -134}
+  m_AnchoredPosition: {x: 459, y: -276}
   m_SizeDelta: {x: 106.8568, y: 26.7142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555625020
@@ -2205,7 +2204,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -361.9999, y: 13.220161}
+  m_AnchoredPosition: {x: -390.9999, y: -157.77985}
   m_SizeDelta: {x: 336.865, y: 59.8871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1765161188
@@ -2540,7 +2539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2007358193
 RectTransform:
   m_ObjectHideFlags: 0
