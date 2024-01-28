@@ -18,13 +18,18 @@ public class wordChecker : MonoBehaviour
     //logic aspects 
     private float timer = 10f;
     private float epsilon = 0.0001f;
-    wordSelection test = new wordSelection();
+    // wordSelection test = new wordSelection();
+    private wordSelection test;
+    
+
+
 
     bool isFound = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        test = GameObject.Find("wordManager").GetComponent<wordSelection>();
         textBox.onEndEdit.AddListener(HandleInput);
         garbledWord.text = test.currWord.Item1;
         goToSabotagerButton.enabled = false;
