@@ -21,6 +21,7 @@ public class HoverScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     {
         original = blankSpot.text;
         blankSpot.text = hoveredButton.GetComponentInChildren<TMP_Text>().text;
+        Debug.Log("on me" + hoveredButton.GetComponentInChildren<TMP_Text>().text);
     }
 
     public void OnPointerExit(PointerEventData eventData)

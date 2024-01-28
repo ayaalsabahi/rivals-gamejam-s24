@@ -380,9 +380,9 @@ MonoBehaviour:
   GM: {fileID: 0}
   P1UI: {fileID: 0}
   P2UI: {fileID: 0}
-  name1: 
-  name2: 
-  channelName: {fileID: 0}
+  name1: Channel X Scrambler
+  name2: Channel Y Scrambler
+  channelName: {fileID: 2075967084}
 --- !u!114 &214349828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1950,7 +1950,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 491.42892, y: -301.60724}
+  m_AnchoredPosition: {x: -47, y: -134}
   m_SizeDelta: {x: 106.8568, y: 26.7142}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555625020
