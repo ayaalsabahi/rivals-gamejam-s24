@@ -31,7 +31,6 @@ public class HackController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         // Debug.Log(wordGenerator.GetType());
         // Debug.Log(GameObject.Find("Canvas").GetComponent<wordSelection>().GetType());
         wordGenerator = GameObject.Find("wordManager").GetComponent<wordSelection>();
@@ -85,6 +84,7 @@ public class HackController : MonoBehaviour
 
     public void Hack()
     {
+        GameManager.S.NowGuessing();
         SceneManager.LoadScene("sabotageeScene");
         word = blankSpot.text;
         Debug.Log(word);

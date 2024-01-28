@@ -55,7 +55,6 @@ public class wordSelection : MonoBehaviour
         Tuple<string, string>[] tupleArray = tupleList.ToArray();
         return tupleArray;
         
-
     }
 
 

@@ -19,9 +19,6 @@ public class wordChecker : MonoBehaviour
     private float timer = 10f;
     private float epsilon = 0.0001f;
     wordSelection test = new wordSelection();
-    
-
-
 
     bool isFound = false;
 
@@ -30,10 +27,8 @@ public class wordChecker : MonoBehaviour
     {
         textBox.onEndEdit.AddListener(HandleInput);
         garbledWord.text = test.currWord.Item1;
-        goToSabotagerButton.interactable = false;
+        goToSabotagerButton.enabled = false;
         goToSabotagerButton.onClick.AddListener(GoToSabotagerOnClick);
-
-
     }
 
     private void Update()
@@ -45,13 +40,13 @@ public class wordChecker : MonoBehaviour
         }
         else
         {
-           
-            goToSabotagerButton.interactable = true;
+            goToSabotagerButton.enabled = true;
         }
 
-        if (isFound)
+        if (isFound && goToSabotagerButton.enabled == false)
         {
-            goToSabotagerButton.interactable = true;
+            GameManager.S.currentState = GameState.PostRound;
+            goToSabotagerButton.enabled = true;
         }
     }
 
@@ -73,7 +68,9 @@ public class wordChecker : MonoBehaviour
 
     private void GoToSabotagerOnClick()
     {
+        goToSabotagerButton.enabled = false;
         //add some sort of transition
+        GameManager.S.NowSabotaging();
         SceneManager.LoadScene("SampleScene");
     }
 
@@ -81,9 +78,13 @@ public class wordChecker : MonoBehaviour
     private void HandleWinning()
     {
         isFound = true;
+
         if (GameManager.S.isPlayerOne) GameManager.S.CorrectAnswer(GameManager.S.playerOne);
         else GameManager.S.CorrectAnswer(GameManager.S.playerTwo);
-        if (GameManager.S.winnerIs == winnerState.playerOneWin || GameManager.S.winnerIs == winnerState.playerTwoWin) { 
+
+        if (GameManager.S.winnerIs == winnerState.playerOneWin || GameManager.S.winnerIs == winnerState.playerTwoWin)
+        {
+            GameManager.S.currentState = GameState.GameOver;
             SceneManager.LoadScene("winning");
         }
         else

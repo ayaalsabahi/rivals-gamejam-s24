@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     private void StartRound()
     {
-        GameManager.S.currentState = GameState.Sabotaging;
+        NowSabotaging();
     }
 
     public void CorrectAnswer(GameObject thePlayer)
@@ -117,6 +117,21 @@ public class GameManager : MonoBehaviour
         {
             isPlayerOne = true;
         }
+    }
+
+    public void NowSabotaging()
+    {
+        GameManager.S.currentState = GameState.Sabotaging;
+    }
+
+    public void NowGuessing()
+    {
+        GameManager.S.currentState = GameState.Guessing;
+    }
+
+    private IEnumerator PlayerTransition()
+    {
+        yield return new WaitForSeconds(3.5f);
     }
 
     private IEnumerator GameOverRoutine()
