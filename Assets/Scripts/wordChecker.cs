@@ -22,15 +22,13 @@ public class wordChecker : MonoBehaviour
     private float epsilon = 0.0001f;
     // wordSelection test = new wordSelection();
     private wordSelection test;
-    
-
-
-
     bool isFound = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameManager.S.SwitchTurn();
+        GameManager.S.NowGuessing();
         test = GameObject.Find("wordManager").GetComponent<wordSelection>();
         textBox.onEndEdit.AddListener(HandleInput);
         garbledWord.text = test.currWord.Item1;
@@ -69,12 +67,10 @@ public class wordChecker : MonoBehaviour
         if(timer > epsilon)
         {
             if (textBox != null) textBox.text = "";
-            if (inputTextLower == test.currWord.Item2.ToLower() && !isFound) HandleWinning();
+            if (inputTextLower.Equals(test.currWord.Item2.ToLower()) && !isFound) HandleWinning();
             else HandleLosing();
         }
 
-        
-        
     }
 
     private void GoToSabotagerOnClick()
@@ -104,7 +100,7 @@ public class wordChecker : MonoBehaviour
     {
 
         if (GameManager.S.isPlayerOne) GameManager.S.WrongAnswer(GameManager.S.playerOne);
-        else GameManager.S.CorrectAnswer(GameManager.S.playerTwo);
+        else GameManager.S.WrongAnswer(GameManager.S.playerTwo);
         if (GameManager.S.strikeCountPlayerOne >= GameManager.S.STRIKE_COUNT || GameManager.S.strikeCountPlayerTwo >= GameManager.S.STRIKE_COUNT) SceneManager.LoadScene("losing");
             //add the strike check count
             ColorBlock colors = goToSabotagerButton.colors;
