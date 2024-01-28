@@ -72,13 +72,16 @@ public class GameManager : MonoBehaviour
     private void StartRound()
     {
         NowSabotaging();
-        animController.ResetTimerAnimation();
+        //animController.ResetTimerAnimation();
+        Debug.Log("called in start round");
     }
 
     public void TimerAnimationStuff()
     {
-        animController.ResetTimerAnimation();
-        animController.StartAnimation();
+        //animController.ResetTimerAnimation();
+        //animController.StartAnimation();
+        Debug.Log("called in timer animation stuff");
+        
     }
 
     private void SetUpStopwatch()
@@ -97,8 +100,11 @@ public class GameManager : MonoBehaviour
         Debug.Log("got correct answer");
         if (animController != null)
         {
-            Debug.Log("anim controller not null");
+            Debug.Log("anim controller not nulllllllll");
+            //animController.
             animController.StopAnimation();
+
+            Debug.Log("animation just stopped");
             animController.ChangeSprite();
         }
         else

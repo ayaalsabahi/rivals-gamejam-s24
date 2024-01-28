@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3143438968854033267}
   - component: {fileID: 8116063157364732372}
+  - component: {fileID: 5641723147502680026}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -30,8 +31,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5031505349500814864}
   - {fileID: 4668220384654347620}
-  - {fileID: 7218580383214409471}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8116063157364732372
@@ -60,7 +61,26 @@ MonoBehaviour:
   winnerIs: 4
   strikeCountPlayerOne: 0
   strikeCountPlayerTwo: 0
---- !u!1001 &3542815099240761218
+--- !u!114 &5641723147502680026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970462761504075840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c9680e4af606464eaa4ad185c7996ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseAnimation: 0
+  janiceRenderer: {fileID: 0}
+  janice: {fileID: 0}
+  janiceRaised: {fileID: 0}
+  chadRenderer: {fileID: 0}
+  chad: {fileID: 0}
+  chadRaised: {fileID: 0}
+--- !u!1001 &1212708987255035757
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -68,6 +88,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3143438968854033267}
     m_Modifications:
+    - target: {fileID: 899910577965514846, guid: d6f1bbe05a4ae48d296bca05dbee2fc1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2157883356293527104, guid: d6f1bbe05a4ae48d296bca05dbee2fc1, type: 3}
       propertyPath: m_Name
       value: AnimationManager
@@ -117,10 +141,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6f1bbe05a4ae48d296bca05dbee2fc1, type: 3}
---- !u!4 &7218580383214409471 stripped
+--- !u!4 &5031505349500814864 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6126891188486918525, guid: d6f1bbe05a4ae48d296bca05dbee2fc1, type: 3}
-  m_PrefabInstance: {fileID: 3542815099240761218}
+  m_PrefabInstance: {fileID: 1212708987255035757}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6822742820772958276
 PrefabInstance:
