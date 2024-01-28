@@ -36,9 +36,9 @@ public class HackController : MonoBehaviour
 
         toCheckList = words;
 
-        choice1Txt = words[0].Item1;
-        choice2Txt = words[1].Item1;
-        choice3Txt = words[2].Item1;
+        choice1Txt = words[0].Item2 + "\n" + "to" + "\n" + words[0].Item1;
+        choice2Txt = words[1].Item2 + "\n" + "to" + "\n" + words[1].Item1;
+        choice3Txt = words[2].Item2 + "\n" + "to" + "\n" + words[2].Item1;
         
         choice1.onClick.AddListener(ChangeBlankTo1);
         choice2.onClick.AddListener(ChangeBlankTo2);
