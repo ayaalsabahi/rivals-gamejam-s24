@@ -31,7 +31,6 @@ public class HackController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         wordGenerator = GameObject.Find("wordManager").GetComponent<wordSelection>();
         List<Tuple<string, string>> words = new List<Tuple<string, string>>(wordGenerator.getRandomWords());
 
@@ -80,10 +79,15 @@ public class HackController : MonoBehaviour
 
     public void Hack()
     {
-        SceneManager.LoadScene("sabotageeScene");
-        wordGenerator.currWord.Item1 = toCheck.Item1;
-        wordGenerator.currWord.Item2 = toCheck.Item2;
-        word = blankSpot.text;
+
+        if(blankSpot.text != "")
+        {
+            GameManager.S.NowGuessing();
+            SceneManager.LoadScene("sabotageeScene");
+            wordGenerator.currWord.Item1 = toCheck.Item1;
+            wordGenerator.currWord.Item2 = toCheck.Item2;
+            word = blankSpot.text;
+        }
     }
 
 }
