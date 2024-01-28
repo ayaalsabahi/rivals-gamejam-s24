@@ -80,10 +80,13 @@ public class HackController : MonoBehaviour
 
     public void Hack()
     {
-        SceneManager.LoadScene("sabotageeScene");
-        wordGenerator.currWord.Item1 = toCheck.Item1;
-        wordGenerator.currWord.Item2 = toCheck.Item2;
-        word = blankSpot.text;
+        if(blankSpot.text != "")
+        {
+            SceneManager.LoadScene("sabotageeScene");
+            wordGenerator.currWord.Item1 = toCheck.Item1;
+            wordGenerator.currWord.Item2 = toCheck.Item2;
+            word = blankSpot.text;
+        }
     }
 
 }
