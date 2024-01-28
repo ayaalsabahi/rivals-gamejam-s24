@@ -32,6 +32,7 @@ public class HoverScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void NameChange()
     {
         original = hoveredButton.GetComponentInChildren<TMP_Text>().text;
+        GameManager.S.PlayClickSound();
     }
 }
 

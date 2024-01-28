@@ -3,7 +3,12 @@ guid: 7d6a020138d39475686341188ca5c12e
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - audioClip: {fileID: 8300000, guid: 155eebfda4070484da5bb58d0d766030, type: 3}
+  - playerOnePrefab: {instanceID: 0}
+  - playerTwoPrefab: {instanceID: 0}
+  - playerOne: {instanceID: 0}
+  - playerTwo: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
 
 {
+    public AudioClip audioClip;
+    private AudioSource audioSource;
     public static GameManager S; // define the singleton
 
     public GameState currentState;
@@ -56,6 +58,10 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = gameObject.AddComponent<AudioSource>();
+
+        // Set the AudioClip for the AudioSource
+        audioSource.clip = audioClip;
         // initialize relevant variables
         playerOneApproval = 0;
         playerTwoApproval = 0;
@@ -240,5 +246,20 @@ public class GameManager : MonoBehaviour
     private IEnumerator GameOverRoutine()
     {
         yield return new WaitForSeconds(1.0f);
+    }
+
+    public void PlayClickSound()
+    {
+        // Play the assigned click sound
+
+        if (audioClip != null)
+        {
+            // Play the audio
+            audioSource.Play();
+        }
+        else
+        {
+            Debug.Log("Problems :(((");
+        }
     }
 }

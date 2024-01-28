@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6a020138d39475686341188ca5c12e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 155eebfda4070484da5bb58d0d766030, type: 3}
   currentState: 0
   playerOneApproval: 0
   playerTwoApproval: 0
@@ -77,9 +78,13 @@ MonoBehaviour:
   janiceRenderer: {fileID: 0}
   janice: {fileID: 0}
   janiceRaised: {fileID: 0}
+  janiceNervous: {fileID: 0}
+  janiceLose: {fileID: 0}
   chadRenderer: {fileID: 0}
   chad: {fileID: 0}
   chadRaised: {fileID: 0}
+  chadNervous: {fileID: 0}
+  chadLose: {fileID: 0}
 --- !u!1001 &1212708987255035757
 PrefabInstance:
   m_ObjectHideFlags: 0

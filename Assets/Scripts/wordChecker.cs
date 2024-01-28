@@ -82,6 +82,7 @@ public class wordChecker : MonoBehaviour
     private void GoToSabotagerOnClick()
     {
         //add some sort of transition
+        GameManager.S.PlayClickSound();
         GameManager.S.BeginTimerGuessing();
         SceneManager.LoadScene("SampleScene");
     }

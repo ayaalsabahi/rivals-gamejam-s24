@@ -63,18 +63,21 @@ public class HackController : MonoBehaviour
     {
         toCheck = toCheckList[0];
         blankSpot.text = choice1.GetComponentInChildren<TMP_Text>().text;
+        GameManager.S.PlayClickSound();
     }
 
     void ChangeBlankTo2()
     {
         toCheck = toCheckList[1];
         blankSpot.text = choice2.GetComponentInChildren<TMP_Text>().text;
+        GameManager.S.PlayClickSound();
     }
 
     void ChangeBlankTo3()
     {
         toCheck = toCheckList[2];
         blankSpot.text = choice3.GetComponentInChildren<TMP_Text>().text;
+        GameManager.S.PlayClickSound();
     }
 
     public void Hack()
@@ -82,12 +85,15 @@ public class HackController : MonoBehaviour
 
         if(blankSpot.text != "")
         {
+            GameManager.S.PlayClickSound();
+            Debug.Log("reached end of hacking");
             GameManager.S.SwitchTurn();
             GameManager.S.TimerAnimationStuff();
             wordGenerator.currWord.Item1 = toCheck.Item1;
             wordGenerator.currWord.Item2 = toCheck.Item2;
             word = blankSpot.text;
             SceneManager.LoadScene("sabotageeScene");
+            
         }
     }
 
