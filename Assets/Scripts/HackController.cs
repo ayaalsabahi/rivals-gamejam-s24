@@ -83,6 +83,7 @@ public class HackController : MonoBehaviour
         if(blankSpot.text != "")
         {
             GameManager.S.NowGuessing();
+            GameManager.S.SwitchTurn();
             SceneManager.LoadScene("sabotageeScene");
             wordGenerator.currWord.Item1 = toCheck.Item1;
             wordGenerator.currWord.Item2 = toCheck.Item2;
