@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using Debug = UnityEngine.Debug;
 
 public enum GameState { Menu, PreRound, Sabotaging, Guessing, PostRound, GameOver };
 
-public enum winnerState { playerOneWin, playerTwoWin, playerOneLose, playerTwoLose, stillPlaying}
+public enum winnerState { playerOneWin, playerTwoWin, playerOneLose, playerTwoLose, stillPlaying }
 
 public class GameManager : MonoBehaviour
 
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     public float playerOneApproval;
     public float playerTwoApproval;
     private float timer;
+    private GameObject stopwatch;
+    private AnimationController animController;
     public float RATING_INCREMENT = 10.0f;
     public float MAX_POINTS = 50.00f;
     public int STRIKE_COUNT = 3;
@@ -55,6 +58,7 @@ public class GameManager : MonoBehaviour
         playerOneApproval = 0;
         playerTwoApproval = 0;
         GameManager.S.currentState = GameState.PreRound;
+        SetUpStopwatch();
         DontDestroyOnLoad(this);
         StartRound();
     }
@@ -68,6 +72,14 @@ public class GameManager : MonoBehaviour
     private void StartRound()
     {
         NowSabotaging();
+        animController.ResetAnimation();
+    }
+
+    private void SetUpStopwatch()
+    {
+        stopwatch = GameObject.FindWithTag("Stopwatch");
+        if (stopwatch != null) animController = stopwatch.GetComponent<AnimationController>();
+        else Debug.LogError("Stopwatch_0 not found in the scene.");
     }
 
     public void CorrectAnswer(GameObject thePlayer)
@@ -76,13 +88,24 @@ public class GameManager : MonoBehaviour
         IncreasePlayerRating(thePlayer, RATING_INCREMENT);
         // "Well said!" "Astute observation as always."
 
+        if (animController != null)
+        {
+            animController.StopAnimation();
+            animController.ChangeSprite();
+        }
+        else
+        {
+            Debug.LogError("AnimationController not found in the scene.");
+        }
+
         // check for if player wins
         if (playerOneApproval >= MAX_POINTS || playerTwoApproval == MAX_POINTS)
         {
             StopAllCoroutines();
             GameOverRoutine();
         }
-        else {
+        else
+        {
             // switches to other player's turn
             Debug.Log("is player one after = " + isPlayerOne);
             //SwitchTurn();
