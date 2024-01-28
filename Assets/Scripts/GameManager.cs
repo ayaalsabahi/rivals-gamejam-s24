@@ -17,6 +17,10 @@ public class GameManager : MonoBehaviour
     private AudioSource audioSource;
     public static GameManager S; // define the singleton
 
+
+    public AudioClip audioClip2;
+    private AudioSource audioSource2;
+
     public GameState currentState;
 
     public float playerOneApproval;
@@ -43,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+
+
         if (GameManager.S)
         {
             // the game manager already exists, destroy myself
@@ -59,9 +65,14 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audioSource = gameObject.AddComponent<AudioSource>();
-
-        // Set the AudioClip for the AudioSource
         audioSource.clip = audioClip;
+
+        audioSource2 = gameObject.AddComponent<AudioSource>();
+        audioSource2.clip = audioClip2;
+
+        if (audioSource2 != null) audioSource2.Play();
+        else Debug.Log("Music null");
+
         // initialize relevant variables
         playerOneApproval = 0;
         playerTwoApproval = 0;

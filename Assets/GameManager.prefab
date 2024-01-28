@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 155eebfda4070484da5bb58d0d766030, type: 3}
+  audioClip2: {fileID: 8300000, guid: bfe7b516f8dae4c95a460d147f24fb4a, type: 3}
   currentState: 0
   playerOneApproval: 0
   playerTwoApproval: 0
