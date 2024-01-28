@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public float playerTwoApproval;
     private float timer;
     private GameObject stopwatch;
+    private Animator stopwatchAnimator;
     private AnimationController animController;
     public float RATING_INCREMENT = 10.0f;
     public float MAX_POINTS = 50.00f;
@@ -67,20 +68,20 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // check for winner
+        SetUpStopwatch();
     }
 
     private void StartRound()
     {
         StartCoroutine(PlayerTransition());
         NowSabotaging();
-        //animController.ResetTimerAnimation();
         Debug.Log("called in start round");
     }
 
     public void TimerAnimationStuff()
     {
-        //animController.ResetTimerAnimation();
-        //animController.StartAnimation();
+        animController.ResetTimerAnimation();
+        animController.StartAnimation();
         Debug.Log("called in timer animation stuff");
         
     }
@@ -88,8 +89,13 @@ public class GameManager : MonoBehaviour
     private void SetUpStopwatch()
     {
         stopwatch = GameObject.FindWithTag("Stopwatch");
-        if (stopwatch != null) animController = stopwatch.GetComponent<AnimationController>();
+        if (stopwatch != null) {
+            animController = stopwatch.GetComponent<AnimationController>();
+            stopwatchAnimator = stopwatch.GetComponent<Animator>();
+            stopwatch.SetActive(true);
+        }
         else Debug.LogError("Stopwatch_0 not found in the scene.");
+        
     }
 
     public void CorrectAnswer(GameObject thePlayer)
@@ -104,6 +110,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("anim controller not nulllllllll");
             //animController.
             animController.StopAnimation();
+            stopwatchAnimator.speed = 0.0f;
+            Debug.Log("animator speed is=" + stopwatchAnimator.speed);
 
             Debug.Log("animation just stopped");
             animController.ChangeSprite();
@@ -127,7 +135,6 @@ public class GameManager : MonoBehaviour
             NowSabotaging();
             //SwitchTurn();
             Debug.Log("is player one after = " + isPlayerOne);
-
         }
     }
 
@@ -174,6 +181,13 @@ public class GameManager : MonoBehaviour
         GameManager.S.currentState = GameState.Guessing;
     }
 
+    public void BeginTimerGuessing()
+    {
+        NowGuessing();
+        TimerAnimationStuff();
+
+    }
+
     private IEnumerator PlayerTransition()
     {
         Debug.Log("Coroutine started");
@@ -203,8 +217,10 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
 
             Debug.Log("Chad & janice deactivated");
-            chadPeeking.SetActive(false);
-            janicePeeking.SetActive(false);
+            if (chadPeeking != null)
+                chadPeeking.SetActive(false);
+            if (janicePeeking != null)
+                janicePeeking.SetActive(false);
         }
     }
 

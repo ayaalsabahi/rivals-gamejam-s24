@@ -35,7 +35,6 @@ public class AnimationController : MonoBehaviour
             else
                 janiceRenderer = GameObject.FindWithTag("Janice").GetComponent<SpriteRenderer>();
         }
-       
     }
 
     public void StopAnimation()
@@ -51,7 +50,7 @@ public class AnimationController : MonoBehaviour
 
     public void StartAnimation()
     {
-        animator.speed = 5.0f;
+        animator.speed = 1.0f;
     }
 
     public void ResetTimerAnimation()
