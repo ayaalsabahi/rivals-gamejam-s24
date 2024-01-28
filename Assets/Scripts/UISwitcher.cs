@@ -19,7 +19,7 @@ public class UISwitcher : MonoBehaviour
     public TMP_Text channelName;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         GM = GameObject.Find("GameManager").GetComponent<GameManager>();
         P1UI = GameObject.Find("SabotageUIP1");
@@ -29,13 +29,17 @@ public class UISwitcher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(GM.isPlayerOne)
-       {
-        SetP1UI();
-       }
-       else{
-        SetP2UI();
-       }
+        if(SceneManager.GetActiveScene().name != "SampleScene")
+        {
+            if (GM.isPlayerOne)
+            {
+                SetP1UI();
+            }
+            else
+            {
+                SetP2UI();
+            }
+        }
     }
 
     void SetP1UI()
@@ -48,5 +52,11 @@ public class UISwitcher : MonoBehaviour
     {
         P2UI.SetActive(true);
         P1UI.SetActive(false);
+    }
+
+    public void RemoveOverlay()
+    {
+        P1UI.SetActive(false);
+        P2UI.SetActive(false);
     }
 }

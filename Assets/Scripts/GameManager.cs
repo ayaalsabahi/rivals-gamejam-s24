@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
 
     private void StartRound()
     {
+        StartCoroutine(PlayerTransition());
         NowSabotaging();
         animController.ResetTimerAnimation();
     }
@@ -116,6 +117,8 @@ public class GameManager : MonoBehaviour
         {
             // switches to other player's turn
             Debug.Log("is player one after = " + isPlayerOne);
+
+            NowSabotaging();
             //SwitchTurn();
             Debug.Log("is player one after = " + isPlayerOne);
 
@@ -151,6 +154,8 @@ public class GameManager : MonoBehaviour
     public void SwitchTurn()
     {
         isPlayerOne = !isPlayerOne;
+        StartCoroutine(PlayerTransition());
+        //NowSabotaging();
     }
 
     public void NowSabotaging()
@@ -165,7 +170,36 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator PlayerTransition()
     {
-        yield return new WaitForSeconds(3.5f);
+        Debug.Log("Coroutine started");
+        if (SceneManager.GetActiveScene().name == "SampleScene")
+        {
+            GameObject chadPeeking = GameObject.FindWithTag("ChadPeeking");
+            GameObject janicePeeking = GameObject.FindWithTag("JanicePeeking");
+            if (chadPeeking == null)
+            {
+                Debug.Log("Could not find chad overlay");
+            }
+            else if (janicePeeking == null)
+            {
+                Debug.Log("Could not find janice overlay");
+            }
+            else if (chadPeeking != null && !isPlayerOne)
+            {
+                Debug.Log("Chad activated");
+                chadPeeking.SetActive(true);
+            }
+            else if (janicePeeking != null && isPlayerOne)
+            {
+                Debug.Log("chad deact");
+                chadPeeking.SetActive(false);
+            }
+
+            yield return new WaitForSeconds(1.5f);
+
+            Debug.Log("Chad & janice deactivated");
+            chadPeeking.SetActive(false);
+            janicePeeking.SetActive(false);
+        }
     }
 
     private IEnumerator GameOverRoutine()

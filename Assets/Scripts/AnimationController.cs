@@ -50,7 +50,6 @@ public class AnimationController : MonoBehaviour
 
     public void ResetTimerAnimation()
     {
-        Debug.Log(animator);
         animator.Play("stopwatchgodown", -1, 0f);
     }
 
